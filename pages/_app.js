@@ -1,7 +1,7 @@
 import NavBar from "component/NavBar"
 import Head from "next/head"
 import { useEffect, useState } from "react"
-import {auth} from "../pages/firebase"
+import {auth} from "../firebase"
 
 export default function App({ Component, pageProps }) {
   const [user,setUser] = useState(null)

@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import Link from 'next/link'
-import {auth} from "./firebase"
+import {auth} from "../firebase"
 
 export default function Signup() {
     const [email,setEmail] = useState('')

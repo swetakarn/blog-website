@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import {auth} from '../pages/firebase'
+import {auth} from '../firebase'
 import styles from "../styles/Home.module.css"
 export default function NavBar({user}) {
     

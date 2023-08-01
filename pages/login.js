@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Link from 'next/link'
-import {auth} from "./firebase"
+import {auth} from "../firebase"
 import { useRouter } from "next/navigation";
 const Login = () => {
   const [email, setEmail] = useState("");
