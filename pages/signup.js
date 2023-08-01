@@ -1,12 +1,13 @@
 import {useState} from 'react'
 import Link from 'next/link'
 import {auth} from "../firebase"
+import { useRouter } from 'next/router'
 
 export default function Signup() {
     const [email,setEmail] = useState('')
     const [name,setName] = useState('')
     const [password,setPassword] = useState('')
-
+    const router = useRouter()
     const handleSubmit = async (e)=>{
        e.preventDefault()
 
@@ -16,6 +17,7 @@ export default function Signup() {
            displayName:name
        })
        M.toast({html: `welcome ${result.user.displayName}`,classes:"green"})  
+       router.push('/createblog')
        }catch(err){
         M.toast({html: err.message,classes:"red"})    
        }

@@ -18,6 +18,7 @@ export default function NavBar({user}) {
                 <>
                 <li><Link href="/signup">Signup</Link></li>
                 <li><Link href="/login">Login</Link></li>
+               
                 </>
             }
             
