@@ -89,7 +89,7 @@ export default function createblog({ user }) {
       <div>
 
       <button
-        className="btn #fb8c00 orange darken-1 margin-top"
+        className="btn #fb8c00 orange darken-1 margintop"
         onClick={() => HomepageRedirection()}
       >
         See All Post
@@ -104,6 +104,9 @@ export default function createblog({ user }) {
             max-width: 600px;
             padding: 20px;
             text-align: center;
+          }
+          .margintop{
+            margin-top:10px;
           }
         `}
       </style>
