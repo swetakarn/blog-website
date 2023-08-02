@@ -4,7 +4,7 @@ import { storage, db, serverTimestamp } from "../firebase";
 import { useRouter } from "next/router";
 
 
-export default function createblog({ user }) {
+export default function updateblog({ user }) {
   const router = useRouter();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -58,7 +58,7 @@ export default function createblog({ user }) {
   };
   return (
     <div className="input-field rootdiv">
-      <h3>Create A Blog !!</h3>
+      <h3>Update A Blog !!</h3>
       <input
         type="text"
         value={title}

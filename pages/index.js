@@ -5,6 +5,11 @@ import {useState} from 'react'
 export default function Home({Allblogs}) {
    const [blogs,setblogs] = useState(Allblogs)
    const [end,setEnd] = useState(false)
+   const [search,setSearch] = useState("")
+const searchFilter = blogs.filter((blog) =>
+blog.title.toLowerCase().includes(search.toLowerCase())
+);
+
    const loadMore = async ()=>{
      const last  = blogs[blogs.length-1]
      const res = await  db.collection('blogs')
@@ -25,9 +30,17 @@ export default function Home({Allblogs}) {
        setEnd(true)
      }
    }
+   const deleteBlog = async (blogId) => {
+    if (confirm('Are you sure you want to delete this blog?')) {
+      await db.collection('blogs').doc(blogId).delete();
+      setblogs(blogs.filter((blog) => blog.id !== blogId));
+    }
+  };
+
   return (
-    <div className="center">
-        {blogs.map(blog=>{
+    <div className="center container">
+      <div className='input-field'><input placeholder='search' value={search} type="text" onChange= {(e) =>  setSearch(e.target.value)}/></div>
+        {searchFilter.map(blog=>{
           return(
             <div className="card" key={blog.createdAt}>
             <div className="card-image">
@@ -39,7 +52,22 @@ export default function Home({Allblogs}) {
             </div>
             <div className="card-action">
               <Link href={`/blogs/${blog.id}`}>Read More</Link>
+              {blog.userId === `${blog.id}` && (
+              <>
+                <button
+                  className="btn #fb8c00 orange darken-1"
+                  onClick={() => deleteBlog(blog.id)}
+                  style={{ marginRight: '10px' }}
+                >
+                  Delete
+                </button>
+                <Link href={`/edit-blog/${blog.id}`}>
+                  <button className="btn #fb8c00 orange darken-1">Edit</button>
+                </Link>
+              </>
+            )}
             </div>
+
           </div>
           )
         })}
