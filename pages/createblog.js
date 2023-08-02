@@ -56,6 +56,9 @@ export default function createblog({ user }) {
   const HomepageRedirection = () => {
     router.push("/");
   };
+  const UpdateRedirection = () => {
+    router.push("/updateblog")
+  }
   return (
     <div className="input-field rootdiv">
       <h3>Create A Blog !!</h3>
@@ -93,6 +96,13 @@ export default function createblog({ user }) {
         onClick={() => HomepageRedirection()}
       >
         See All Post
+      </button>
+
+      <button
+        className="btn #fb8c00 orange darken-1 margintop"
+        onClick={() => UpdateRedirection()}
+      >
+        Update Post
       </button>
       </div>
      
